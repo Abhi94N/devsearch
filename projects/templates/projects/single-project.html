@@ -4,6 +4,12 @@
 <h1>Single Project Template </h1>
 
 <h3>{{project.title}}</h3>
+<hr>
+{% comment %} fetch many to many relationship {% endcomment %}
+{% for tag in project.tags.all %}
+<span style="border:1px solid grey">{{tag}}</span>
+{% endfor %}
+<hr>
 <br>
 <p>{{project.description}}</p>
 {% endblock content %}
