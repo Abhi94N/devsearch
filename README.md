@@ -39,3 +39,44 @@
     object.childmodel_set.all()
     object.relationshipname.all()
 ```
+
+
+## form references
+
+
+```python
+  {{form.as_p}}
+  form.field
+  form.field.label
+  {% for field in form %}
+  
+```
+
+
+
+
+## Static Files
+
+1. create static directory and sub directories images, styles, and js in base_dir 
+2. update STATICFILES_DIR variable in settings.js
+3. when using static files you must load static files `{% load static %}`
+4. Can reference static files like this `<link rel="stylesheet" href='{% static "styles/main.css" %}'>`
+5. Set This directory in order to provide where to upload image content `MEDIA_ROOT = BASE_DIR / 'static/images'`
+6. create MEDIA_URL in settings.py and configure MEDIA_ROOT to MEDIA_URL - `urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`  
+7. update forms `form = ProjectForm(request.POST,request.FILES, instance=project)`
+
+8. update enctype for images
+```html
+<form action="" method ="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+    </form>
+```
+9. Create 'Static_ROOT' variable in setting.py - defines where static files in production will be
+10. set this as 'BASE_DIR / 'staticfiles' - run `python manage.py collectstatic`
+    1.  creates staticfile folder for production
+    2.  Will be changed to third party tool in the future
+11. When Setting `DEBUG=False` - URLS set in production for static is what will show. `python manage.py collectstatic`
+12. 'pip install whitenoise` - is required to serve static files
+13. add the following as middleware `"whitenoise.middleware.WhiteNoiseMiddleware",`
