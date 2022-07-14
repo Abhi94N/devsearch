@@ -82,3 +82,13 @@
 11. When Setting `DEBUG=False` - URLS set in production for static is what will show. `python manage.py collectstatic`
 12. 'pip install whitenoise` - is required to serve static files
 13. add the following as middleware `"whitenoise.middleware.WhiteNoiseMiddleware",`
+
+
+## User App
+
+1. This will be in a seperate app in project which needs to updated to installed projects
+2. Steps Completed
+   1. Create application
+   2. Create Views and register them to urls and create a urlspatterns and register them to project 
+   3. Create models and register them in admins.py
+   4. Create templates with directory of app as subdirectory where you place your templates and reference them for your view renders
