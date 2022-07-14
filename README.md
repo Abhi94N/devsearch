@@ -12,6 +12,13 @@
    1. using forign key in many table
 3. Many-To-Many - occurs when multiple records in one table are associated with multiple records in another table
    1. using a table, intermediary table that records FK in table. Django does it by default
+   2. Reference in html template
+    ```html
+    
+        {% comment %} many to many relationship {% endcomment %}
+                        {% for tag in project.tags.all %}
+    ```
+    ```
   
 ## Models
 
