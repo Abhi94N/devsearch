@@ -99,3 +99,20 @@
    2. Create Views and register them to urls and create a urlspatterns and register them to project 
    3. Create models and register them in admins.py
    4. Create templates with directory of app as subdirectory where you place your templates and reference them for your view renders
+
+### Signals 
+
+1. Sender - sends of original actions
+2. Reciever - recieves action and triggers an action
+   1. create an action that listens for events at life event cycle
+3. https://docs.djangoproject.com/en/4.0/topics/signals/
+4. Signals can either be linked to methods as decorators or as part of their signal connect method
+5. seperate signals out in an app and update the use of signals by updating `apps.py` and import signals
+```html
+class UsersConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'users'
+    
+    def ready(self):
+        import users.signals
+```
