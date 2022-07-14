@@ -52,6 +52,8 @@
   
 ```
 
+1. can also update form types by overwriding constructor for modelforms and updating fields
+
 
 
 
