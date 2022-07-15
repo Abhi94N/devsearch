@@ -116,3 +116,21 @@ class UsersConfig(AppConfig):
     def ready(self):
         import users.signals
 ```
+
+## Auth and Auth
+
+1. Authentication - who the user is
+2. Authorization - Grants or denies you permissions to access certain resources
+3. Session based authentication with sessionid
+4. Imports required
+   1. `from django.contrib.auth import login, authenticate, logout`
+    `from django.contrib.auth.models import User`
+    2. Methods
+       1. authenticate - Checks User model to see if user exists
+       2. login - creates a session and passes id to cookies
+       3. logout - removes session and deletes id from cookies
+5. data fetched from is request.POST
+6. Import messages from contrib for flash messages
+7. Set the output to main.html so it always shows up
+8. Use UserCreationForm to overwride forms in forms.py pertaining to User model: `form = CustomUserCreationForm(request.POST)`
+9. 
