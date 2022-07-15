@@ -29,6 +29,7 @@ def loginUser(request):
         if user is not None:
             # login function creates a session table in the database and gets session ID in browsers cookies(how app knows user logs in)
             login(request,user)
+            
             return redirect('profiles')
         else:
             messages.error(request,'Username OR password is incorrect')
@@ -39,7 +40,7 @@ def logoutUser(request):
     context = {}
     # deletes session
     logout(request)
-    messages.success(request,'Username was logged out!')
+    messages.info(request,'User was logged out!')
     return redirect('login')
 
 def registerUser(request):
